@@ -1,26 +1,2 @@
-# Compiled executables
 *.exe
-*.out
-*.app
-
-# Build directories
-build/
 .vscode/
-
-# Object files
-*.o
-*.obj
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Compiled Static libraries
-*.a
-*.lib
-
-# Temporary files
-*.tmp
-*.swp
-*~

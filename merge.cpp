@@ -1,36 +1,37 @@
 #include<iostream>
+using namespace std;
 
+void merge(int arr[],int p,int q,int r){
+        int B[100];
+        int i=p;
+        int j =q+1;
+        int k=p;
 
-    void merge(int m, int n, int a[],int b[],int c[]){
-        int i,j,k;
-        i=0,j=0,k=0;
-        while(i<m&& j<n){
-            if (A[i]<= B[j]){
-                c[k]=A[i];
-                i++;
-
+        while(i<=q && j<=r){
+            if(arr[i]<= arr[j]){
+                B[k++] = arr[i++];
             }
             else{
-                c[k]=B[j];
-                j++;
+                B[k++] = arr[j++];
             }
-        k++;
+        while(i=q){
+            B[k++] = arr[i++];
         }
-        if(i<m){
-            for(int p=i;p<m;p++){
-                c[k]=b[p];
-                k++;
-            }
+        while(j=r){
+            B[k++]=arr[j++];
+        }
+        for(i =p;i<r;i++){
+            arr[i]=B[i];
+        }
         }
     }
 
-void mergersort(int numbers[],int temp[],int array_size){
-    m_sort(numbers,temp,0,array_size-1);}
-void m_sort(int numbers[],int temp[],int left,int right){
-    int mid;
-    if(right>left)
-    mid = (right+left)/2;
-    m_sort(numbers,temp,left,mid);
-    
-    m_sort(numbers,temp,mid+1,right);
-    merge(numbers,temp,left,mid+1,right);}
+
+void merge_sort(int arr[],int p,int r){
+    if(p<r){
+        int q=(p+r)/2;
+        merge_sort(arr,p,q);
+        merge_sort(arr,q+1,r);
+        merge(arr,p,q,r);
+    }
+}
